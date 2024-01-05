@@ -50,17 +50,27 @@ public class Main {
     }
 
     public static void ask(){
-        System.out.println("How many games have you played??");
+        System.out.println("How many games have you played?");
         String total = sc.nextLine();
 
         System.out.println("How many wins do you have?");
         String wins = sc.nextLine();
 
         if (checkFormat(total) && checkFormat(wins)){
-            
 
-            checkLogic(Integer.parseInt(wins), Integer.parseInt(total));
+            int iTotal = Integer.parseInt(total);
+            int iWins = Integer.parseInt(wins);
+
+            if (checkLogic(iWins, iTotal)) {
+
+                double percent = ((double) iWins / (double) iTotal) * 100;
+                System.out.println(percent + "% win rate!");
+
+
+            }
         }
+
+        ask();
     }
 
 
